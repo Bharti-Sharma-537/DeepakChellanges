@@ -10,52 +10,107 @@ public class UserInputData {
     private double rateOfFDInterest;
     private double period;
 
-    public UserInputData()
+    public void setUserName(String userName)
     {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the User's full name :");
-        this.userName = scanner.nextLine();
-        System.out.println("Enter your Yearly Income :");
-        if(scanner.hasNextDouble())
-        {
-            this.yearlyIncome = scanner.nextDouble();
-        }
-        else
-            {
-            scanner.close();
-            }
+        this.userName = userName;
     }
 
-    //Setting and getting the user name
-   /* public void setUserName()
+    public void setYearlyIncome(double yearlyIncome)
     {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the User's full name :");
-        this.userName = scanner.nextLine();
-        scanner.close();
-    }*/
+        this.yearlyIncome = yearlyIncome;
+       if (yearlyIncome<0)
+        {
+            this.yearlyIncome = 0;
+        }
+    }
+
+    public void setLoanAmount(double loanAmount)
+    {
+        this.loanAmount = loanAmount;
+        if (loanAmount<=0)
+        {
+            this.loanAmount = 0;
+        }
+    }
+
+    public void setRateOfLoanInterest(double rateOfLoanInterest)
+    {
+        this.rateOfLoanInterest = rateOfLoanInterest;
+        if ((rateOfLoanInterest <= 0) || (this.loanAmount <= 0))
+        {
+            this.rateOfLoanInterest = 0;
+        }
+    }
+
+    public void setFDAmount(double FDAmount)
+    {
+        this.FDAmount = FDAmount;
+        if (FDAmount < 0)
+        {
+            this.FDAmount = 0;
+        }
+    }
+
+    public void setRateOfFDInterest(double rateOfFDInterest)
+    {
+        this.rateOfFDInterest = rateOfFDInterest;
+        if (rateOfFDInterest < 0)
+        {
+            this.rateOfFDInterest = 0;
+        }
+    }
+
+    public void setPeriod(double period)
+    {
+        this.period = period;
+        if (period < 0)
+        {
+            this.period = 0;
+        }
+    }
 
     public String getUserName() {
         System.out.println("User's full name is : "+this.userName);
-         return this.userName;
+        return this.userName;
     }
 
-    //Setting and getting the Yearly income of user
-   /* public void setYearlyIncome()
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your Yearly Income :");
-        scanner.nextLine();
-        this.yearlyIncome = scanner.nextDouble();
-
-        scanner.close();
-    }*/
     public double getYearlyIncome()
     {
+       /* if (yearlyIncome<0)
+        {
+            this.yearlyIncome = 0;
+        }*/
         System.out.println("User's Yearly income is : "+this.yearlyIncome);
         return this.yearlyIncome;
     }
 
-    //
+    public double getLoanAmount()
+    {
+        System.out.println("User's loan amount is : "+this.loanAmount);
+        return loanAmount;
+    }
 
+    public double getRateOfLoanInterest()
+    {
+        System.out.println("User's rate of interest on loan is : "+this.rateOfLoanInterest);
+        return rateOfLoanInterest;
+    }
+
+    public double getFDAmount()
+    {
+        System.out.println("User's FD amount is : "+this.FDAmount);
+        return FDAmount;
+    }
+
+    public double getRateOfFDInterest()
+    {
+        System.out.println("User's rate of interest on FD is : "+this.rateOfFDInterest);
+        return rateOfFDInterest;
+    }
+
+    public double getPeriod()
+    {
+        System.out.println("Calculation period is : "+this.userName);
+        return period;
+    }
 }
